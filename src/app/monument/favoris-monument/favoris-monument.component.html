@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>💖 Mes monuments favoris</h2>
+
+  <div class="row">
+    <div *ngFor="let monument of monuments" class="col m4 s6">
+      <div class="card horizontal" appBorderCard="#000">
+        <div class="card-image">
+          <img [src]="monument.picture" />
+        </div>
+
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>{{ monument.name }}</h5>
+            <p><small>{{ monument.created | date: 'dd/MM/yyyy' }}</small></p>
+            <span class="{{ monument.country | countryByColor }}">{{ monument.country }}</span>
+          </div>
+          <div class="card-action">
+            <button class="btn" [routerLink]="['/monument', monument.id]">Voir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="monuments.length === 0">Aucun monument en favori pour le moment.</p>
+</div>

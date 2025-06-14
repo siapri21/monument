@@ -1,0 +1,26 @@
+<div class="row">
+  <app-search-monument></app-search-monument>
+
+  <div *ngFor="let monument of monumentList" class="col m4 s6">
+    <div class="card horizontal" appBorderCard="#000">
+      <div class="card-image">
+        <img [src]="monument.picture" />
+      </div>
+
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>
+            {{ monument.name }}
+            <span *ngIf="favoris.includes(monument.id)">❤️</span>
+          </h5>
+          <p><small>{{ monument.created | date:"dd/MM/yyyy" }}</small></p>
+          <span class="{{ monument.country | countryByColor }}">{{ monument.country }}</span>
+        </div>
+
+        <div class="card-action">
+          <button class="btn" (click)="goToMonument(monument)">Voir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
