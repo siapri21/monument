@@ -1,0 +1,38 @@
+<div style="max-width: 960px; margin: auto; padding: 2rem; display: flex; flex-direction: column; gap: 24px;">
+
+  <!-- Carte principale -->
+  <mat-card class="mat-elevation-z6" style="padding: 24px;">
+    <h1 style="margin: 0; font-size: 2.2rem; color: #3f51b5;">📊 Statistiques des Monuments</h1>
+    <p style="font-size: 1.1rem; margin-top: 10px;">
+      <mat-icon style="vertical-align: middle; color: #3f51b5;">summarize</mat-icon>
+      <strong>Total de monuments :</strong> {{ total }}
+    </p>
+  </mat-card>
+
+  <!-- Monuments par pays -->
+  <mat-card class="mat-elevation-z3" style="padding: 24px;">
+    <h2 style="color: #4caf50;">🌍 Monuments par pays</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let country of monumentsParPays | keyvalue">
+        <mat-icon matListIcon color="accent">flag</mat-icon>
+        <div matLine><strong>{{ country.key }}</strong> : {{ country.value }}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <!-- Liste des monuments -->
+  <mat-card class="mat-elevation-z3" style="padding: 24px;">
+    <h2 style="color: #ff9800;">🏛️ Liste des monuments</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let monument of monuments">
+        <mat-icon matListIcon color="primary">location_city</mat-icon>
+        <div matLine>
+          <strong>{{ monument.name }}</strong>
+        </div>
+        <div matLine>
+          <small>{{ monument.buildYear | age }}</small>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

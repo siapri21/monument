@@ -12,6 +12,7 @@ export class ListMonumentComponent implements OnInit {
   monumentList: Monument[] = [];
   monumentSelected: Monument | undefined;
   favoris: number[] = [];
+  searchTerm: string = '';
 
   constructor(private router: Router, private monumentService: MonumentService) {}
 

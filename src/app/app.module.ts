@@ -10,6 +10,9 @@ import { MonumentModule } from './monument/monument.module';
 import { FormsModule } from '@angular/forms';
 import { InMemoryDataService } from './in-memory-data.service';
 import { LoginComponent } from './login/login.component';
+import { AgePipe } from './pipes/age.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,  { dataEncapsulation: false }),
     MonumentModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
